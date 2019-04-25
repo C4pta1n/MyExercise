@@ -53,9 +53,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.github.penggle</groupId>-->
+            <!--<artifactId>kaptcha</artifactId>-->
+            <!--<version>RELEASE</version>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>com.github.penggle</groupId>
-            <artifactId>kaptcha</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>kaptcha-spring-boot-starter</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
             <version>RELEASE</version>
         </dependency>
     </dependencies>

@@ -19,6 +19,26 @@ server:
   servlet:
     context-path: /myexercise
 
+#kaptcha验证码
+kaptcha:
+  height: 40
+  width: 130
+  content:
+    length: 4
+    source: abcdefghjklmnopqrstuvwxyz23456789
+    space: 2
+  font:
+    color: black
+    name: Arial
+    size: 40
+  background-color:
+    from: lightGray
+    to: white
+  border:
+    enabled: false
+    color: black
+    thickness: 1
+
 #开发环境
 ---
 spring:

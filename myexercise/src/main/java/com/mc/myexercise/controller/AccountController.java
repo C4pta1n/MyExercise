@@ -19,39 +19,36 @@ public class AccountController {
     public String goSignInPage() {
         return "login/signup";
     }
+
     @RequestMapping("/signin")
     public String goToLoginPage() {
         return "login/signin";
     }
-    @RequestMapping(value = "/ifSignin",method = RequestMethod.POST)
+
+    @RequestMapping(value = "/ifSignin", method = RequestMethod.POST)
     @ResponseBody
-    public Integer verifyLogin(String username, String password,String verify, HttpServletRequest httpServletRequest) {
-        String code = (String) httpServletRequest.getSession().getAttribute("verifyCode");
+    public Integer verifyLogin(String username, String password, HttpServletRequest httpServletRequest) {
 //        System.out.println(username+"===="+password+"+==="+verify+"==="+code);
-        if (verify.equals(code)) {
-            Account account = accountService.verifyAccount(username,password);
+        Account account = accountService.verifyAccount(username, password);
 //            System.out.println(account);
-            if (null != account) {
-                httpServletRequest.getSession().setAttribute("account",account);
-                return 100;
-            }else {
-                return 101;
-            }
+        if (null != account) {
+            httpServletRequest.getSession().setAttribute("account", account);
+            return 100;
         } else {
-            return 102;
+            return 101;
         }
     }
 
-    @RequestMapping(value = "doSignup",method = RequestMethod.POST)
+    @RequestMapping(value = "doSignup", method = RequestMethod.POST)
     @ResponseBody
-    public Integer ifSignup(Account account,HttpServletRequest httpServletRequest) {
+    public Integer ifSignup(Account account, HttpServletRequest httpServletRequest) {
 //        System.out.println(account);
         if (null != accountService.verifyUsername(account.getUsername())) return 101;
         else if (null != accountService.verifyTel(account.getTel())) return 102;
         else if (null != accountService.verifyEmail(account.getEmail())) return 103;
         else {
-            if (accountService.signup(account)!=0) {
-                httpServletRequest.getSession().setAttribute("account",account);
+            if (accountService.signup(account) != 0) {
+                httpServletRequest.getSession().setAttribute("account", account);
                 return 100;
             } else return 104;
         }
