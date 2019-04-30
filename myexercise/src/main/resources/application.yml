@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://129.204.68.95/myecercise?characterEncoding=UTF-8
+    url: jdbc:mysql://129.204.68.95/myecercise?characterEncoding=UTF-8&useAffectedRows=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: huang
     password: 123456
@@ -15,13 +15,18 @@ spring:
   jackson:
     date-format: yyyy-MM-dd
     time-zone: GMT+8
+  resources:
+    static-locations: classpath:/static/,file:${upload-path}
+  mvc:
+    static-path-pattern: /**
+    date-format: yyyy-MM-dd
 server:
   servlet:
     context-path: /myexercise
 
 #kaptcha验证码
 kaptcha:
-  height: 40
+  height: 50
   width: 130
   content:
     length: 4
@@ -39,12 +44,21 @@ kaptcha:
     color: black
     thickness: 1
 
+
+
+#shiro配置
+
 #开发环境
 ---
 spring:
   profiles: dev
 server:
   port: 8088
+#mybatis:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#文件上传路径
+upload-path: E:/test/
 
 
 #正式环境
@@ -53,3 +67,8 @@ spring:
   profiles: pro
 server:
   port: 80
+
+#文件上传路径
+upload-path: /usr/local/web/upload/
+
+

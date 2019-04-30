@@ -69,7 +69,7 @@
                 });
             });
         });
-    })
+    });
     layui.use(['form', 'layedit', 'laydate'], function() {
         var form = layui.form(),
             layer = layui.layer;
@@ -106,7 +106,7 @@
                             icon: 1,
                             time: 1500,
                             },function () {
-                                window.location.href = "/myexercise/exercise";
+                                window.location.href = "/myexercise/index";
                         });
                     } else if (res == 101) {
                         layer.msg('该用户名已存在',{

@@ -10,5 +10,10 @@ public class ExerciseInfo {
     private Double height;
     private Double weight;
     private Date date;
+    private double cin;
+    private double cout;
+    private String event;
+    private String food;
+    private Integer stime;
     private BaseInfo baseInfo;
 }

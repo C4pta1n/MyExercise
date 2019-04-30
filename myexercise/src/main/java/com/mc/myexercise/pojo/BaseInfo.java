@@ -10,5 +10,6 @@ public class BaseInfo {
     private String name;
     private Integer sex;
     private Date birth;
+    private String icon;
     private Account account;
 }

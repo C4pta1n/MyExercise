@@ -84,7 +84,7 @@
                 } else {
                     $.post("/myexercise/ifSignin", data.field, function (res) {
                         if (res == 100) {
-                            window.location.href = "/myexercise/exercise";
+                            window.location.href = "/myexercise/index";
                         } else if (res == 101) {
                             layer.msg('用户名或密码错误', {
                                 icon: 5,

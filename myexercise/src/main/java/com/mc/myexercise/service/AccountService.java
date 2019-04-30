@@ -13,4 +13,6 @@ public interface AccountService {
     Account verifyEmail(String email);
 
     Integer signup(Account account);
+
+    boolean changePSW(String password, Integer aid);
 }

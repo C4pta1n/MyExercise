@@ -37,4 +37,10 @@ public class AccountServiceImpl implements AccountService {
     public Integer signup(Account account) {
         return accountMapper.addAccount(account);
     }
+
+    @Override
+    public boolean changePSW(String password, Integer aid) {
+        if (accountMapper.updatePassword(password,aid) >0) return true;
+        else return false;
+    }
 }
